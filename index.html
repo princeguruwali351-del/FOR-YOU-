@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For Ekam ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<audio id="bgMusic" src="music.mp3" loop></audio>
+<audio id="clickSound" src="click.mp3"></audio>
+
+<!-- INTRO -->
+<div class="intro" id="intro">
+  <div class="valentine-text">Happy Valentine's my dear Ekam ❤️</div>
+  <div class="continue" onclick="showPassword()">Tap to Continue ❤️</div>
+</div>
+
+<!-- PASSWORD -->
+<div class="card" id="login">
+  <h2>Password Guess Kro cutiee 💌</h2>
+  <input type="password" id="pass">
+  <br><br>
+  <button onclick="checkPass()">Enter</button>
+</div>
+
+<!-- QUIZ -->
+<div class="card" id="quizCard">
+  <h1>Happy Valentine My Bebo ❤️</h1>
+  <h3 id="question"></h3>
+  <img id="question-img">
+  <div id="options"></div>
+</div>
+
+<!-- GAME -->
+<div class="card" id="gameCard">
+  <h2>Catch My Heart ❤️</h2>
+  <p>Score: <span id="score">0</span></p>
+
+  <div id="gameArea">
+    <div id="heartBtn">❤️</div>
+  </div>
+</div>
+
+<!-- LETTERS -->
+<div class="card" id="letterCard">
+  <h2>My Letters For You 💌</h2>
+
+  <button onclick="openLetter('chocolate.html')">Chocolate Day 🍫</button>
+  <button onclick="openLetter('propose.html')">Propose Day 💍</button>
+  <button onclick="openLetter('hug.html')">Hug Day 🤗</button>
+  <button onclick="openLetter('kiss.html')">Kiss Day 😘</button>
+
+  <br>
+  <button onclick="finalSurprise()">Final Surprise ❤️</button>
+</div>
+
+<script>
+
+// 🎵 Music start
+document.body.addEventListener("click", function(){
+document.getElementById("bgMusic").play();
+}, {once:true});
+
+// 💖 Floating hearts
+for(let i=0;i<20;i++){
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(5+Math.random()*5)+"s";
+heart.style.fontSize=(20+Math.random()*20)+"px";
+document.body.appendChild(heart);
+}
+
+// 🔐 Password
+let password="0828";
+
+// 💌 Questions
+let questions=[
+{
+q:"Apni Pehli Proper Gall Kdo Hoyi C?",
+img:"photos/photo1.jpeg",
+options:["Kise time v?","Raat nu 🌙","Svere?","Sham nu"],
+correct:3
+},
+{
+q:"Hum dono me sabse strong cheez kya hai?",
+img:"photos/photo2.jpg",
+options:["Attraction","Understanding ❤️","Habit","Timepass"],
+correct:1
+},
+{
+q:"Mere andar kaunsi cheez tumhe safe feel karwati hai?",
+img:"photos/photo3.jpg",
+options:["Possessive","Care ❤️","Pagalpan","Attitude"],
+correct:1
+},
+{
+q:"Future me hum kaise honge?",
+img:"photos/photo4.jpg",
+options:["Joking","Traveling","Married ❤️","Best friends"],
+correct:2
+}
+];
+
+let current=0;
+
+// 👉 Show password
+function showPassword(){
+document.getElementById("intro").style.display="none";
+document.getElementById("login").style.display="block";
+}
+
+// 👉 Check password
+function checkPass(){
+let input=document.getElementById("pass").value;
+
+if(input===password){
+document.getElementById("login").style.display="none";
+document.getElementById("quizCard").style.display="block";
+loadQuestion();
+}else{
+alert("Wrong Password 😜");
+}
+}
+
+// 👉 Load question
+function loadQuestion(){
+if(current<questions.length){
+let q=questions[current];
+
+document.getElementById("question").innerText=q.q;
+document.getElementById("question-img").src=q.img;
+
+let html="";
+for(let i=0;i<q.options.length;i++){
+html+=`<button onclick="answer(${i})">${q.options[i]}</button>`;
+}
+document.getElementById("options").innerHTML=html;
+
+}else{
+startGame();
+}
+}
+
+// 👉 Answer
+function answer(choice){
+document.getElementById("clickSound").play();
+
+let q=questions[current];
+
+if(choice===q.correct){
+alert("Haye ❤️ sahi jawab...");
+current++;
+loadQuestion();
+}else{
+alert("Galat 😏 dobara try karo");
+}
+}
+
+// 🎮 Game
+let score=0;
+
+function startGame(){
+document.getElementById("quizCard").style.display="none";
+document.getElementById("gameCard").style.display="block";
+moveHeart();
+}
+
+function moveHeart(){
+let h=document.getElementById("heartBtn");
+h.style.left=Math.random()*250+"px";
+h.style.top=Math.random()*250+"px";
+}
+
+document.addEventListener("click",function(e){
+if(e.target.id==="heartBtn"){
+score++;
+document.getElementById("score").innerText=score;
+moveHeart();
+
+if(score==5){
+showLetters();
+}
+}
+});
+
+function showLetters(){
+document.getElementById("gameCard").style.display="none";
+document.getElementById("letterCard").style.display="block";
+}
+
+// 💌 open new tab
+function openLetter(page){
+window.open(page,"_blank");
+}
+
+// 💍 Final surprise
+function finalSurprise(){
+document.getElementById("letterCard").innerHTML=`
+
+<h1 style="font-family:Great Vibes;font-size:50px;">Ekam ❤️</h1>
+<p id="finalText"></p>
+
+<h2>Will You Be Mine Forever? 💍</h2>
+
+<button onclick="yes()">YES 💖</button>
+<button id="noBtn" onmouseover="moveNo()">NO 😏</button>
+`;
+
+typeFinal();
+}
+
+// typing
+let msg=`Tu meri life ka sabse pyara hissa hai...
+
+Main har din tujhe choose karta hoon ❤️
+
+Tu meri aadat bhi hai aur meri zarurat bhi 💖`;
+
+let i=0;
+function typeFinal(){
+if(i<msg.length){
+document.getElementById("finalText").innerHTML+=msg.charAt(i);
+i++;
+setTimeout(typeFinal,40);
+}
+}
+
+// no button run
+function moveNo(){
+let b=document.getElementById("noBtn");
+b.style.position="absolute";
+b.style.left=Math.random()*300+"px";
+b.style.top=Math.random()*200+"px";
+}
+
+// yes click
+function yes(){
+
+document.body.innerHTML=`
+
+<div class="final">
+  <h1>I Love You Ekam ❤️</h1>
+
+  <div class="bigHeart">❤️</div>
+</div>
+
+`;
+
+startHearts();
+}
+
+
+// hearts
+function heartExplosion(){
+for(let i=0;i<50;i++){
+let h=document.createElement("div");
+h.innerHTML="❤️";
+h.style.position="fixed";
+h.style.left=Math.random()*100+"vw";
+h.style.top=Math.random()*100+"vh";
+h.style.fontSize="30px";
+document.body.appendChild(h);
+}
+}
+
+// confetti
+function confetti(){
+for(let i=0;i<100;i++){
+let c=document.createElement("div");
+c.style.position="fixed";
+c.style.width="10px";
+c.style.height="10px";
+c.style.background="white";
+c.style.left=Math.random()*100+"vw";
+c.style.top="-10px";
+c.style.animation="fall 3s linear";
+document.body.appendChild(c);
+}
+}
+
+</script>
+
+</body>
+</html>

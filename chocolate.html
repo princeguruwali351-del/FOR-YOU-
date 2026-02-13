@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Chocolate Day 🍫</title>
+<link rel="stylesheet" href="letter.css">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Happy Chocolate Day 🍫</h1>
+  <p id="text"></p>
+  <button onclick="goBack()">⬅ Back</button>
+</div>
+
+<script>
+
+let message = `Happy Chocolate Day, my love 🍫❤️
+
+You know what? Just like chocolate, you have become my favorite addiction 😏💕 The kind I never want to give up, no matter what. Every moment with you feels sweeter, warmer, and more beautiful than the last 💖
+
+They say chocolate makes people happy… but for me, nothing in this world can match the happiness you bring into my life 😊✨ Your smile is sweeter than any chocolate, your voice is more comforting than anything else, and your presence makes everything perfect 🫶
+
+Just like how chocolate melts slowly, my heart melts every time I think about you 🥺❤️ You have this magical way of turning my worst days into the best ones, just by being there. You don’t even realize how special you are to me 💕
+
+If love had a taste, I’m sure it would taste like chocolate… rich, sweet, and unforgettable — just like you 😘🍫 Every little moment with you feels like a beautiful memory that I never want to end 💫
+
+I wish I could give you the sweetest chocolates today, but honestly, even they wouldn’t be as sweet as you are ❤️ You are my happiness, my comfort, and my favorite feeling in this world 🥰
+
+Happy Chocolate Day, my sweetest addiction 🍫💖
+`;
+
+let i=0;
+
+function typeWriter(){
+  if(i<message.length){
+    document.getElementById("text").innerHTML+=message.charAt(i);
+    i++;
+    setTimeout(typeWriter,40);
+  }
+}
+
+function goBack(){
+  window.close();
+}
+
+typeWriter();
+
+</script>
+
+</body>
+</html>

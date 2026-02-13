@@ -1,0 +1,280 @@
+/* Reset */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  height:100vh;
+  font-family:'Poppins',sans-serif;
+  color:white;
+  background:linear-gradient(-45deg,#8B0000,#ff1744,#240b36,#c31432);
+  background-size:400% 400%;
+  animation:gradientMove 12s ease infinite;
+  overflow:hidden;
+  position:relative;
+}
+
+/* Background animation */
+@keyframes gradientMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* ========================= */
+/* INTRO SCREEN */
+/* ========================= */
+
+.intro{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+  z-index:2;
+}
+
+.valentine-text{
+  font-family:'Great Vibes',cursive;
+  font-size:70px;
+  text-shadow:0 0 25px rgba(255,255,255,0.8);
+  animation:fadeZoom 2s ease forwards;
+}
+
+.continue{
+  margin-top:25px;
+  font-size:22px;
+  cursor:pointer;
+  animation:blink 1.5s infinite;
+}
+
+/* Animations */
+@keyframes blink{
+  0%{opacity:1;}
+  50%{opacity:0.4;}
+  100%{opacity:1;}
+}
+
+@keyframes fadeZoom{
+  0%{opacity:0; transform:scale(0.8);}
+  100%{opacity:1; transform:scale(1);}
+}
+
+/* ========================= */
+/* CARD (LOGIN, QUIZ, GAME) */
+/* ========================= */
+
+.card{
+  display:none;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(15px);
+  padding:30px;
+  border-radius:20px;
+  width:90%;
+  max-width:500px;
+  text-align:center;
+  z-index:2;
+  box-shadow:0 0 30px rgba(255,0,100,0.4);
+}
+
+/* Headings */
+h1{
+  font-family:'Great Vibes',cursive;
+  font-size:40px;
+  margin-bottom:10px;
+}
+
+h2{
+  margin-bottom:10px;
+}
+
+/* Input */
+input{
+  padding:10px;
+  border:none;
+  border-radius:10px;
+  outline:none;
+  width:80%;
+}
+
+/* ========================= */
+/* BUTTONS */
+/* ========================= */
+
+button{
+  padding:10px 20px;
+  border:none;
+  border-radius:20px;
+  margin:8px;
+  cursor:pointer;
+  font-weight:bold;
+  background:white;
+  color:#c31432;
+  transition:0.3s;
+}
+
+/* Hover effect */
+button:hover{
+  transform:scale(1.05);
+}
+
+/* Quiz buttons */
+#options button{
+  display:block;
+  width:70%;
+  margin:10px auto;
+  background:linear-gradient(45deg,#ff9966,#ff5e62);
+  color:white;
+}
+
+/* ========================= */
+/* IMAGE */
+/* ========================= */
+
+#question-img{
+  width:100%;
+  max-width:250px;
+  height:auto;
+  border-radius:15px;
+  margin-top:15px;
+  box-shadow:0 0 15px rgba(255,255,255,0.5);
+}
+
+/* ========================= */
+/* GAME */
+/* ========================= */
+
+#gameArea{
+  position:relative;
+  height:300px;
+  border:2px dashed white;
+  margin-top:20px;
+  border-radius:15px;
+}
+
+#heartBtn{
+  position:absolute;
+  font-size:30px;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+/* ========================= */
+/* LETTER TEXT */
+/* ========================= */
+
+#letterText{
+  margin-top:20px;
+  white-space:pre-line;
+  line-height:1.5;
+}
+
+/* ========================= */
+/* FLOATING HEARTS */
+/* ========================= */
+
+.heart{
+  position:fixed;
+  bottom:-50px;
+  animation:floatUp linear infinite;
+  opacity:0.8;
+  z-index:0; /* background me rahenge */
+}
+
+@keyframes floatUp{
+  0%{
+    transform:translateY(0);
+    opacity:0;
+  }
+  30%{
+    opacity:1;
+  }
+  100%{
+    transform:translateY(-120vh);
+    opacity:0;
+  }
+}
+@keyframes fall{
+to{
+transform:translateY(100vh);
+opacity:0;
+}
+}
+
+.card{
+transition:0.5s;
+}
+
+h1{
+text-shadow:0 0 20px rgba(255,255,255,0.8);
+}
+.final{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+}
+
+#finalHeading{
+  font-family:'Great Vibes';
+  font-size:70px;
+  text-shadow:0 0 30px rgba(255,255,255,0.9);
+}
+
+#finalMsg{
+  margin-top:15px;
+  font-size:22px;
+}
+
+/* Replay button */
+.final button{
+  margin-top:30px;
+  padding:12px 25px;
+  border:none;
+  border-radius:25px;
+  background:white;
+  color:#c31432;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.final button:hover{
+  transform:scale(1.1);
+}
+/* Final Screen */
+.final{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+}
+
+/* Text */
+.final h1{
+  font-family:'Great Vibes';
+  font-size:70px;
+  text-shadow:0 0 30px rgba(255,255,255,0.9);
+}
+
+/* Big Heart */
+.bigHeart{
+  font-size:80px;
+  margin-top:20px;
+  animation:beat 1s infinite;
+}
+
+/* Heart Beat Animation */
+@keyframes beat{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.3);}
+  100%{transform:scale(1);}
+}

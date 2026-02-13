@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hug Day 🤗</title>
+<link rel="stylesheet" href="letter.css">
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Happy Hug Day 🤗</h1>
+  <p id="text"></p>
+  <button onclick="goBack()">⬅ Back</button>
+</div>
+
+<script>
+let message = `Happy Hug Day, my love 🤗❤️
+
+If I could choose one place to be in this world, it would always be in your arms. There’s something magical about your hug that makes everything feel right, no matter how chaotic life gets 💖
+
+Whenever you hug me, I forget all my worries, all my fears, and all the noise around me. It feels like time pauses for a moment, and all that exists is just you and me 💫 Your hug is not just a simple gesture, it’s my safe place, my comfort, and my peace 🥺❤️
+
+In your arms, I feel protected, loved, and understood without even saying a word. It’s like your hug speaks everything my heart needs to hear 💕 It tells me that I’m not alone, that I have you, and that you will always be there for me 🤗
+
+I wish I could hug you right now and never let go. I want to hold you close and remind you how much you mean to me, how much I adore you, and how lucky I feel to have you in my life 😘❤️
+
+Your hugs are my favorite therapy, my favorite place, and my favorite feeling 🫶
+
+Happy Hug Day, my everything 🤗💖
+❤️`;
+let i=0;
+
+function typeWriter(){
+  if(i<message.length){
+    document.getElementById("text").innerHTML+=message.charAt(i);
+    i++;
+    setTimeout(typeWriter,40);
+  }
+}
+
+function goBack(){
+  window.close();
+}
+
+typeWriter();
+</script>
+
+</body>
+</html>

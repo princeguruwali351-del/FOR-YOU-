@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Propose Day 💍</title>
+<link rel="stylesheet" href="letter.css">
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Happy Propose Day 💍</h1>
+  <p id="text"></p>
+  <button onclick="goBack()">⬅ Back</button>
+</div>
+
+<script>
+let message = `Ekam ❤️ I have been holding so many feelings inside my heart for so long and today I just want to let everything out without ego without pride without anything standing between us 🤍 because when I look back at everything that happened between us I do not only see the mistakes or the arguments or the distance that came between us I see the laughter 😊 the late night talks 🌙 the comfort we found in each other and the way my heart always felt safe with you 🫶 I know we both made mistakes I know there were moments when we did not understand each other properly and maybe there were times when I hurt you even if I never meant to and for that I am truly sorry 💔 because the last thing I ever wanted was to be the reason for your pain the truth is no matter how much time passes no matter how much I try to act strong there has always been a space inside me that only you fill 🥺 I tried to ignore it I tried to convince myself that maybe it is better to move on but every time I think about love every time I imagine peace and happiness your name is the one that echoes in my heart 💞 I miss the way you understood me without me explaining everything I miss the way your presence alone could calm my worst days I miss us not just the memories but the connection that felt real and pure and rare ✨ and I know we cannot erase the past like it never happened but I believe we can learn from it I believe we can grow from it I believe that sometimes people deserve another chance not because they are perfect but because what they share is worth fighting for 💍 I do not want to repeat the same mistakes I do not want to lose you again over misunderstandings or silence or pride I want to do this right this time I want to listen more I want to understand more I want to be better for you and with you 🤝 I am not standing here asking you to forget everything overnight I am asking you to believe that what we had was real and what we can have can be even stronger 💗 I still love you and that feeling has never been temporary it has been patient it has been constant it has survived confusion and distance and time ⏳ and today I am choosing to speak from my heart without fear because losing you once taught me how valuable you truly are in my life 🌹 I do not want a perfect love story I want a real one with effort with growth with trust with forgiveness and with two people who decide every single day that they are not giving up on each other 💕 I want to hold your hand again not just physically but emotionally I want to build something stable something beautiful something that makes both of us feel secure and proud and happy 🏡 I am ready to leave behind the negativity the misunderstandings and the pain and I am ready to start fresh with honesty and maturity and pure intention 🤍 so today I am proposing to you again not because I am lonely not because I am afraid of being alone but because my heart still chooses you even after everything even after the hurt even after the distance my heart still finds its way back to you and that must mean something real and powerful 💓 Ekum I love you deeply and sincerely and completely and I am asking you with all the honesty in my soul will you give us another chance will you allow us to start over and create something stronger wiser and more meaningful than before 🌺 because if you say yes I promise I will not take you for granted I will not let ego control us I will communicate I will respect you I will value you and I will choose you every single day not just when things are easy but especially when things are hard 💖 because loving you is not just a feeling for me it is a decision and today I am choosing you all over again 💍❤️
+
+And one more thing my love 🥹
+
+You are not just someone I loved
+You are someone my heart feels at home with 🏠❤️
+
+No matter how far we go
+My heart somehow always walks back to you 💫
+
+If love has a name for me
+It will always be yours ekam 💞✨
+
+LOVE YOU ALOT MERI BEBO ❤️🥹❤️`;
+let i=0;
+
+function typeWriter(){
+  if(i<message.length){
+    document.getElementById("text").innerHTML+=message.charAt(i);
+    i++;
+    setTimeout(typeWriter,40);
+  }
+}
+
+function goBack(){
+  window.close();
+}
+
+typeWriter();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kiss Day 😘</title>
+<link rel="stylesheet" href="letter.css">
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Happy Kiss Day 😘</h1>
+  <p id="text"></p>
+  <button onclick="goBack()">⬅ Back</button>
+</div>
+
+<script>
+let message = `Happy Kiss Day, my love 😘❤️
+
+A kiss is such a small thing, yet it holds so many feelings that words can never fully express 💖 It’s not just about closeness, it’s about connection — the kind that only hearts can understand 🫶
+
+Every time I think about you, I feel this warmth inside me, like you’re already close to me, even when you’re far away 🥺✨ And honestly, if I had one wish right now, it would be to hold you close and steal a soft kiss from you 😏💕
+
+A kiss from you would mean everything to me… it would be comfort, love, and peace all at once ❤️ It would be that one moment where the whole world disappears, and all that matters is just you and me 💫
+
+You know, it’s not just about the kiss itself… it’s about the feeling behind it. The care, the affection, and the silent promise that I’m yours and you’re mine 💞 That’s what makes it so special 😘
+
+I want every kiss of ours to remind you how much you mean to me, how deeply I care about you, and how lucky I feel to have you in my life 💖
+
+Happy Kiss Day, my favorite feeling 😘❤️
+`;
+let i=0;
+
+function typeWriter(){
+  if(i<message.length){
+    document.getElementById("text").innerHTML+=message.charAt(i);
+    i++;
+    setTimeout(typeWriter,40);
+  }
+}
+
+function goBack(){
+  window.close();
+}
+
+typeWriter();
+</script>
+
+</body>
+</html>
